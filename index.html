@@ -155,6 +155,24 @@
     .tags { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; }
     .tags span { font-size: 0.8rem; font-weight: 600; color: var(--accent); }
 
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 2rem;
+      margin-top: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .skill-group { display: flex; flex-direction: column; gap: 0.22rem; }
+    .skill-group-label {
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.2rem;
+    }
+    .skill-group span {
+      font-size: 0.82rem; font-weight: 500;
+      color: rgba(28,20,16,0.75); line-height: 1.5;
+    }
+
     .socials { display: flex; gap: 0.75rem; margin-top: 1.1rem; }
     .socials a {
       display: flex; align-items: center; justify-content: center;
@@ -216,6 +234,85 @@
     .c-val { font-size: 0.93rem; font-weight: 500; }
 
     #footer { min-height: 25vh; }
+
+    /* ── MOBILE RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav {
+        gap: 1.4rem;
+        padding: 1.1rem 1.4rem;
+      }
+      nav a { font-size: 0.85rem; }
+
+      .section { padding: 1.2rem; }
+
+      #hero h1 { font-size: clamp(2.8rem, 14vw, 4.5rem); }
+      #hero .sub { font-size: clamp(0.72rem, 3.2vw, 0.95rem); letter-spacing: 0.04em; }
+
+      .card {
+        padding: 1.6rem 1.4rem;
+        border-radius: 6px;
+      }
+
+      /* About — stack photo above text on mobile */
+      .about-inner {
+        flex-direction: column;
+        gap: 1.4rem;
+        align-items: center;
+      }
+      .about-photo {
+        width: 120px; min-width: 120px; height: 150px;
+      }
+      .about-text h2 {
+        font-size: 1.4rem;
+        text-align: center;
+      }
+      .about-text p {
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      /* Skills — single column on mobile */
+      .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+      }
+      .skill-group span { font-size: 0.8rem; }
+
+      .socials { justify-content: center; }
+
+      /* CraveX */
+      .card h2 { font-size: 1.4rem; }
+      .card > p { font-size: 0.88rem; }
+      .pills { gap: 0.35rem; }
+      .pill { font-size: 0.72rem; padding: 0.22rem 0.7rem; }
+
+      /* Contact */
+      .c-val { font-size: 0.85rem; }
+    }
+
+    /* CSS Sun */
+    #css-sun {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: none;
+    }
+    #css-sun .core {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fffde0 0%, #ffe88a 55%, transparent 100%);
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    #css-sun .halo {
+      border-radius: 50%;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,240,160,0.18) 0%, transparent 70%);
+    }
   </style>
 </head>
 <body>
@@ -243,26 +340,46 @@
     <div class="card" id="card-about">
       <div class="about-inner">
         <div class="about-photo">
-          <span class="ph-label">Your photo</span>
+          <img src="sky_gastinel_headshot.png" alt="Sky Gastinel">
         </div>
         <div class="about-text">
           <h2>Sky Gastinel</h2>
-          <p>Data scientist, neurobiology graduate, and startup founder with experience building AI tools, analytics systems, and consumer wellness products from the ground up. Recently focused on applied AI, growth strategy, and product development — from deploying enterprise automation tools to launching a science-backed brand rethinking sugar cravings through functional gum.</p>
-          <div class="tags">
-            <span>Data Science</span>
-            <span>Neurobiology</span>
-            <span>Applied AI</span>
-            <span>Startup Founder</span>
-            <span>Growth Strategy</span>
+          <p>Startup founder, data scientist, and builder focused on turning science and technology into products people actually use. Experience spanning AI tools, analytics systems, and consumer wellness brands built from the ground up. Recently focused on applied AI, growth strategy, and launching CraveX, a science-backed brand rethinking sugar cravings through functional gum. Background in data science and neurobiology from University of California, Berkeley.</p>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <div class="skill-group-label">Data & AI</div>
+              <span>Python · SQL · Power BI</span>
+              <span>Azure OpenAI · Dataverse</span>
+              <span>AI Agents · ETL · Dashboarding</span>
+              <span>Data Analytics · Automation</span>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-label">E-commerce & Growth</div>
+              <span>Shopify · Klaviyo · Meta Ads</span>
+              <span>Google Analytics · CRO · SEO</span>
+              <span>Email Marketing · Growth Marketing</span>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-label">Product & Strategy</div>
+              <span>Product Strategy · Go-to-Market</span>
+              <span>Consumer Research · A/B Testing</span>
+              <span>Supply Chain · Vendor Sourcing</span>
+            </div>
+            <div class="skill-group">
+              <div class="skill-group-label">Brand & Business</div>
+              <span>Brand Building · Copywriting</span>
+              <span>Content Creation · Social Media</span>
+              <span>Fundraising · Partnerships</span>
+            </div>
           </div>
           <div class="socials">
-            <a href="https://instagram.com/skygastinel" target="_blank" title="Instagram">
+            <a href="https://www.instagram.com/skygastinel/" target="_blank" title="Instagram">
               <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
-            <a href="https://linkedin.com/in/skygastinel" target="_blank" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/skygastinel/" target="_blank" title="LinkedIn">
               <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             </a>
-            <a href="mailto:sky@skygastinel.com" title="Email">
+            <a href="mailto:sky@gastinel.com" title="Email">
               <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             </a>
           </div>
@@ -292,17 +409,17 @@
   <section class="section" id="contact">
     <div class="card" id="card-contact">
       <h2>Get in touch</h2>
-      <p>Whether it's a collaboration, question, or just to say hello — my inbox is open.</p>
+      <p>I love meaningful conversations. Whether it's a collaboration, question, or just to say hello, my inbox is open.</p>
       <div class="contact-rows">
-        <a class="c-row" href="mailto:sky@skygastinel.com">
+        <a class="c-row" href="mailto:sky@gastinel.com">
           <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
-          <div class="c-label"><span class="c-type">Email</span><span class="c-val">sky@skygastinel.com</span></div>
+          <div class="c-label"><span class="c-type">Email</span><span class="c-val">sky@gastinel.com</span></div>
         </a>
-        <a class="c-row" href="https://instagram.com/skygastinel" target="_blank">
+        <a class="c-row" href="https://www.instagram.com/skygastinel/" target="_blank">
           <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
           <div class="c-label"><span class="c-type">Instagram</span><span class="c-val">@skygastinel</span></div>
         </a>
-        <a class="c-row" href="https://linkedin.com/in/skygastinel" target="_blank">
+        <a class="c-row" href="https://www.linkedin.com/in/skygastinel/" target="_blank">
           <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
           <div class="c-label"><span class="c-type">LinkedIn</span><span class="c-val">Sky Gastinel</span></div>
         </a>
@@ -385,20 +502,24 @@
   sunGroup.position.set(70, 55, -600);
 
   const sunMesh = new THREE.Mesh(
-    new THREE.CircleGeometry(22, 48),
-    new THREE.MeshBasicMaterial({ color: 0xfffde0, transparent: true, opacity: 0.95 })
+    new THREE.CircleGeometry(20, 64),
+    new THREE.MeshBasicMaterial({ color: 0xfffde0, transparent: false })
   );
   sunGroup.add(sunMesh);
 
-  [40, 60, 90].forEach((r, i) => {
+  // Soft layered halos — stable opacity, no flicker
+  [34, 52, 75, 105, 145].forEach((r, i) => {
     const halo = new THREE.Mesh(
-      new THREE.CircleGeometry(r, 48),
-      new THREE.MeshBasicMaterial({ color: 0xfff0a0, transparent: true, opacity: 0.07 - i * 0.015 })
+      new THREE.CircleGeometry(r, 64),
+      new THREE.MeshBasicMaterial({ color: 0xfff5b0, transparent: true, opacity: 0.10 - i * 0.016, depthWrite: false })
     );
-    halo.position.z = -0.1 * (i + 1);
+    halo.position.z = -0.05 * (i + 1);
     sunGroup.add(halo);
   });
   scene.add(sunGroup);
+
+  // Smoothed sun position state
+  let sunX = 70, sunY = 55, sunZ = -600;
 
   // ── CLOUD BUILDER ──
   function buildCloud(x, y, z, scale, alpha) {
@@ -554,14 +675,14 @@
     const fogLit = 0.88 - progress * 0.12;
     scene.fog.color.setHSL(fogHue, fogSat, fogLit);
 
-    // Sun warms and descends toward horizon as progress increases
-    sunGroup.position.y = 55 - progress * 38;
-    const sunColor = new THREE.Color().setHSL(0.13 - progress * 0.07, 0.95, 0.72 - progress * 0.18);
-    sunMesh.material.color.copy(sunColor);
-
-    // Sun follows camera z
-    sunGroup.position.z = camZ - 600;
-    sunGroup.position.x = 70 + Math.sin(frame * 0.003) * 3;
+    // Sun — smoothly lerp to target position, no jitter
+    const targetSunX = 70 + Math.sin(frame * 0.0008) * 6;
+    const targetSunY = 55 - progress * 36;
+    const targetSunZ = camZ - 600;
+    sunX += (targetSunX - sunX) * 0.02;
+    sunY += (targetSunY - sunY) * 0.03;
+    sunZ += (targetSunZ - sunZ) * 0.04;
+    sunGroup.position.set(sunX, sunY, sunZ);
     skySphere.position.copy(camera.position);
 
     // Cloud gentle bob + drift
