@@ -203,7 +203,16 @@
     .btn-primary:hover { opacity: 0.72; }
     .btn-primary svg { width: 12px; height: 12px; fill: currentColor; }
 
-    /* Contact */
+    /* CraveX image layout */
+    .cx-inner { display: flex; gap: 2rem; align-items: center; }
+    .cx-text { flex: 1; min-width: 0; }
+    .cx-photo {
+      width: 200px; min-width: 200px; height: 260px;
+      border-radius: 4px; overflow: hidden; flex-shrink: 0;
+    }
+    .cx-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+
+    /* Contact rows */
     .contact-rows { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 0.4rem; }
     .c-row {
       display: flex; align-items: center; gap: 1rem;
@@ -262,6 +271,14 @@
       .socials { justify-content: center; }
 
       /* CraveX */
+      .cx-inner { flex-direction: column-reverse; }
+      .cx-photo { width: 100%; min-width: unset; height: 220px; }
+
+      /* Contact */
+      .card > p { font-size: 0.88rem; }
+      .pills { gap: 0.35rem; }
+      .pill { font-size: 0.72rem; padding: 0.22rem 0.7rem; }
+
       .card h2 { font-size: 1.4rem; }
       .card > p { font-size: 0.88rem; }
       .pills { gap: 0.35rem; }
@@ -345,19 +362,26 @@
 
   <section class="section" id="cravex">
     <div class="card" id="card-cravex">
-      <div class="cx-eyebrow">Current Venture</div>
-      <h2>CraveX Gum</h2>
-      <p>A science-backed consumer wellness brand rethinking how we manage sugar cravings. CraveX uses functional ingredients and behavioral science to create a gum that works with your biology — not against it.</p>
-      <div class="pills">
-        <span class="pill">Functional Wellness</span>
-        <span class="pill">Behavioral Science</span>
-        <span class="pill">Consumer Goods</span>
-        <span class="pill">Startup</span>
+      <div class="cx-inner">
+        <div class="cx-text">
+          <div class="cx-eyebrow">Current Venture</div>
+          <h2>CraveX Gum</h2>
+          <p>A science-backed consumer wellness brand rethinking how we manage sugar cravings. CraveX uses functional ingredients and behavioral science to create a gum that works with your biology — not against it.</p>
+          <div class="pills">
+            <span class="pill">Functional Wellness</span>
+            <span class="pill">Behavioral Science</span>
+            <span class="pill">Consumer Goods</span>
+            <span class="pill">Startup</span>
+          </div>
+          <a href="https://cravexgum.com" target="_blank" class="btn-primary">
+            Visit CraveX
+            <svg viewBox="0 0 24 24"><path d="M14 3v2H7v14h14v-7h2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7zm7 0v6h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H15V3h6z"/></svg>
+          </a>
+        </div>
+        <div class="cx-photo">
+          <img src="IMGA1166.jpeg" alt="CraveX Gum product">
+        </div>
       </div>
-      <a href="https://cravexgum.com" target="_blank" class="btn-primary">
-        Visit CraveX
-        <svg viewBox="0 0 24 24"><path d="M14 3v2H7v14h14v-7h2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7zm7 0v6h-2V6.414l-9.293 9.293-1.414-1.414L17.586 5H15V3h6z"/></svg>
-      </a>
     </div>
   </section>
 
